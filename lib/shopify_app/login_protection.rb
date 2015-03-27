@@ -21,7 +21,7 @@ module ShopifyApp::LoginProtection
 
   def shop_session
     return unless session[:shopify]
-    @shop_session ||= ShopifySessionRepository.retrieve(YAML.load session[:shopify])
+    @shop_session ||= YAML.load ShopifySessionRepository.retrieve(session[:shopify])
   end
 
   def login_again_if_different_shop
